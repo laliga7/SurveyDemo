@@ -197,9 +197,13 @@ Public Class TakeSurvey
         (sargp2.Checked = False And aargp2.Checked = False And drgp2.Checked = False And nrgp2.Checked = False And sdrgp2.Checked = False) Or
         (sargp3.Checked = False And aargp3.Checked = False And drgp3.Checked = False And nrgp3.Checked = False And sdrgp3.Checked = False) Or
         (sargp4.Checked = False And aargp4.Checked = False And drgp4.Checked = False And nrgp4.Checked = False And sdrgp4.Checked = False) Then
-            MessageBox.Show("Missing fields required!")
+            MessageBox.Show("Missing fields required!", "Enter all fields", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            Dim std As New MAPS() With
+            If ageSel.Value < 5 Or ageSel.Value > 120 Then
+                MessageBox.Show("Missing fields required!", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+
+                Dim std As New MAPS() With
             {
             .SurveyID = countt + 2.ToString,
     .Surname = surnametbx.Text,
@@ -218,48 +222,49 @@ Public Class TakeSurvey
     .Radio = radio.ToString,
     .Television = tv.ToString
             }
-            Dim setter = client.Set("SurveyList/" + (countt + 2).ToString, std)
-            survCount = 0
-            MessageBox.Show("Survey submitted successfully!")
-            Me.Close()
+                Dim setter = client.Set("SurveyList/" + (countt + 2).ToString, std)
+                survCount = 0
+                MessageBox.Show("Survey submitted successfully!")
+                Me.Close()
 
 #Region "Reset to default"
-            surnametbx.Text = ""
-            fnametbx.Text = ""
-            cnumbertbx.Text = ""
-            ageSel.Value = 0
-            pizzacbx.Checked = False
-            pastacbx.Checked = False
-            papcbx.Checked = False
-            chickencbx.Checked = False
-            beefcbx.Checked = False
-            othercbx.Checked = False
+                surnametbx.Text = ""
+                fnametbx.Text = ""
+                cnumbertbx.Text = ""
+                ageSel.Value = 0
+                pizzacbx.Checked = False
+                pastacbx.Checked = False
+                papcbx.Checked = False
+                chickencbx.Checked = False
+                beefcbx.Checked = False
+                othercbx.Checked = False
 
-            sargp1.Checked = False
-            sargp2.Checked = False
-            sargp3.Checked = False
-            sargp4.Checked = False
+                sargp1.Checked = False
+                sargp2.Checked = False
+                sargp3.Checked = False
+                sargp4.Checked = False
 
-            aargp1.Checked = False
-            aargp2.Checked = False
-            aargp3.Checked = False
-            aargp4.Checked = False
+                aargp1.Checked = False
+                aargp2.Checked = False
+                aargp3.Checked = False
+                aargp4.Checked = False
 
-            nrgp1.Checked = False
-            nrgp2.Checked = False
-            nrgp3.Checked = False
-            nrgp4.Checked = False
+                nrgp1.Checked = False
+                nrgp2.Checked = False
+                nrgp3.Checked = False
+                nrgp4.Checked = False
 
-            drgp1.Checked = False
-            drgp2.Checked = False
-            drgp3.Checked = False
-            drgp4.Checked = False
+                drgp1.Checked = False
+                drgp2.Checked = False
+                drgp3.Checked = False
+                drgp4.Checked = False
 
-            sdrgp1.Checked = False
-            sdrgp2.Checked = False
-            sdrgp3.Checked = False
-            sdrgp4.Checked = False
+                sdrgp1.Checked = False
+                sdrgp2.Checked = False
+                sdrgp3.Checked = False
+                sdrgp4.Checked = False
 #End Region
+            End If
         End If
     End Sub
 

@@ -17,7 +17,7 @@ Public Class ViewResults
     Dim oldPersonNum As Integer = 0
     Dim oldName As String = ""
 
-    Dim minAge As Integer = 100
+    Dim minAge As Integer = 120
     Dim minName As String
 
     Dim pizzaTotal As Integer = 0
