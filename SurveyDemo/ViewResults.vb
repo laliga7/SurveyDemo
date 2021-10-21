@@ -8,8 +8,8 @@ Imports System.Text.RegularExpressions
 
 Public Class ViewResults
 
-#Region "Global Variables"
     'global variables
+#Region "Global Variables"
     Dim survCount As Integer = 0
     Dim sumAge As Integer = 0
     Dim avgAge As Double = 0.00
@@ -35,7 +35,7 @@ Public Class ViewResults
     Dim radioAvg As Double = 0.00
 #End Region
 
-    'connect to the database
+    'establish a connection to the database
     Private fcon As New FirebaseConfig() With
         {
     .AuthSecret = "SDvxmJN0TDOK0MPuhWWv0esngVk1lxO7EG2WAwnZ",
@@ -43,6 +43,7 @@ Public Class ViewResults
         }
     Private client As IFirebaseClient
 
+    'connect to the database
     Private Sub ViewResults_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             client = New FireSharp.FirebaseClient(fcon)
@@ -52,7 +53,6 @@ Public Class ViewResults
 
 
         'retrieve data from the database and calculate averages and percentages 
-
         Dim res2 As FirebaseResponse = client.Get("SurveyList")
         Dim data As Dictionary(Of String, MAPS) = JsonConvert.DeserializeObject(Of Dictionary(Of String, MAPS))(res2.Body.ToString)
 

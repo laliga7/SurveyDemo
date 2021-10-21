@@ -7,6 +7,8 @@ Imports Newtonsoft.Json
 Imports System.Text.RegularExpressions
 
 Public Class TakeSurvey
+    'global variables
+#Region "global variables"
     Dim eatOut As Integer = 0
     Dim movies As Integer = 0
     Dim tv As Integer = 0
@@ -20,7 +22,9 @@ Public Class TakeSurvey
 
     Dim survCount As Integer = 0
     Dim countt As Integer = 0
+#End Region
 
+    'establish a connect to the database
     Private fcon As New FirebaseConfig() With
         {
     .AuthSecret = "SDvxmJN0TDOK0MPuhWWv0esngVk1lxO7EG2WAwnZ",
@@ -28,6 +32,7 @@ Public Class TakeSurvey
         }
     Private client As IFirebaseClient
 
+    'connect to the database
     Private Sub TakeSurvey_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             client = New FireSharp.FirebaseClient(fcon)
@@ -42,10 +47,8 @@ Public Class TakeSurvey
             countt = item.Value.SurveyID
             survCount = survCount + 1
         Next
-
-
     End Sub
-
+    'place holders and validation of text boxes
 #Region "Place Holders"
     'full name validation
     Private Sub fnameTbox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles fnametbx.KeyPress
@@ -136,9 +139,10 @@ Public Class TakeSurvey
     End Sub
 
 #End Region
-
+    'events that happen when the submit button is clicked
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
 
+        'checkbox value addition
 #Region "checkbox addition"
         Dim pizza As Integer = 0
         Dim pasta As Integer = 0
@@ -189,8 +193,7 @@ Public Class TakeSurvey
                 other = 0
         End Select
 #End Region
-
-
+        'validate that data has been enterd before submitting
         If surnametbx.Text = String.Empty Or fnametbx.Text = String.Empty Or cnumbertbx.Text = String.Empty Or ageSel.Value = 0 Or
         (pastacbx.Checked = False And pizzacbx.Checked = False And papcbx.Checked = False And chickencbx.Checked = False And beefcbx.Checked = False And othercbx.Checked = False) Or
         (sargp1.Checked = False And aargp1.Checked = False And drgp1.Checked = False And nrgp1.Checked = False And sdrgp1.Checked = False) Or
@@ -199,11 +202,12 @@ Public Class TakeSurvey
         (sargp4.Checked = False And aargp4.Checked = False And drgp4.Checked = False And nrgp4.Checked = False And sdrgp4.Checked = False) Then
             MessageBox.Show("Missing fields required!", "Enter all fields", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
+            'age validation
             If ageSel.Value < 5 Or ageSel.Value > 120 Then
                 MessageBox.Show("Age must be between 5 and 120", "Invalid Age", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-
-                Dim std As New MAPS() With
+                'if all fields are enterd correctly, proceed to save the data in the database
+                Dim std As New MAPS With
             {
             .SurveyID = countt + 2.ToString,
     .Surname = surnametbx.Text,
@@ -227,6 +231,7 @@ Public Class TakeSurvey
                 MessageBox.Show("Survey submitted successfully!")
                 Me.Close()
 
+                'reset all fields to default values
 #Region "Reset to default"
                 surnametbx.Text = ""
                 fnametbx.Text = ""
@@ -264,10 +269,11 @@ Public Class TakeSurvey
                 sdrgp3.Checked = False
                 sdrgp4.Checked = False
 #End Region
+
             End If
         End If
     End Sub
-
+    'radio button condition additions
 #Region "raidobox addition"
     Private Sub sargp1_CheckedChanged(sender As Object, e As EventArgs) Handles sargp1.CheckedChanged
         If sargp1.Checked = True Then
@@ -391,19 +397,5 @@ Public Class TakeSurvey
         End If
     End Sub
 #End Region
-
-
-
-    'Private Sub sargp1_CheckedChanged(sender As Object, e As EventArgs) Handles sargp1.CheckedChanged
-    '    If aargp1.Checked = True Or drgp1.Checked = True Or nrgp1.Checked = True Or drgp1.Checked = True Or sdrgp1.Checked = True Then
-    '        sargp1.Checked = False
-    '    Else
-    '        sargp1.Checked = True
-    '        drgp1.Checked = False
-    '        nrgp1.Checked = False
-    '        drgp1.Checked = False
-    '        sdrgp1.Checked = False
-    '    End If
-    'End Sub
 
 End Class
