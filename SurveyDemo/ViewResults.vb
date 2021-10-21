@@ -7,6 +7,9 @@ Imports Newtonsoft.Json
 Imports System.Text.RegularExpressions
 
 Public Class ViewResults
+
+#Region "Global Variables"
+    'global variables
     Dim survCount As Integer = 0
     Dim sumAge As Integer = 0
     Dim avgAge As Double = 0.00
@@ -30,8 +33,9 @@ Public Class ViewResults
     Dim moviesAvg As Double = 0.00
     Dim tvAvg As Double = 0.00
     Dim radioAvg As Double = 0.00
+#End Region
 
-
+    'connect to the database
     Private fcon As New FirebaseConfig() With
         {
     .AuthSecret = "SDvxmJN0TDOK0MPuhWWv0esngVk1lxO7EG2WAwnZ",
@@ -47,7 +51,7 @@ Public Class ViewResults
         End Try
 
 
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        'retrieve data from the database and calculate averages and percentages 
 
         Dim res2 As FirebaseResponse = client.Get("SurveyList")
         Dim data As Dictionary(Of String, MAPS) = JsonConvert.DeserializeObject(Of Dictionary(Of String, MAPS))(res2.Body.ToString)
@@ -96,7 +100,7 @@ Public Class ViewResults
 
         'Display totals
         totalNumSurv.Text = survCount
-        avgAgelbl.Text = avgAge
+        avgAgelbl.Text = Math.Round(avgAge, 2).ToString
         oldPerslbl.Text = oldName + " with the age of " + oldPersonNum.ToString + " years."
         minAgeLbl.Text = minName + " with the age of " + Math.Round(minAge, 2).ToString + " yaers."
         pizzaLbl.Text = Math.Round(((100 * pizzaTotal) / survCount), 2).ToString + "%"
