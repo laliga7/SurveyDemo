@@ -102,7 +102,7 @@ Public Class ViewResults
         totalNumSurv.Text = survCount
         avgAgelbl.Text = Math.Round(avgAge, 2).ToString
         oldPerslbl.Text = oldName + " with the age of " + oldPersonNum.ToString + " years."
-        minAgeLbl.Text = minName + " with the age of " + Math.Round(minAge, 2).ToString + " yaers."
+        minAgeLbl.Text = minName + " with the age of " + minAge.ToString + " yaers."
         pizzaLbl.Text = Math.Round(((100 * pizzaTotal) / survCount), 2).ToString + "%"
         pastaLbl.Text = Math.Round(((100 * pastaTotal) / survCount), 2).ToString + "%"
         pAwLbl.Text = Math.Round(((100 * pAwTotal) / survCount), 2).ToString + "%"
@@ -111,6 +111,32 @@ Public Class ViewResults
         tvLbl.Text = Math.Round(tvAvg, 2).ToString
         radioLbl.Text = Math.Round(radioAvg, 2).ToString
 
+        'change chart background colour
+        'Me.Chart1.ChartAreas(0).BackColor = Color.FromArgb(13, 103, 181)
+
+#Region "Charts"
+        'clear chart for new data
+        Chart1.Series(0).Points.Clear()
+        Chart2.Series(0).Points.Clear()
+        Chart3.Series(0).Points.Clear()
+
+        'populate bar chart
+        Chart2.Series("TOTAL_SURVEYS").Points.AddXY("TOTAL_SURVEYS", survCount)
+        Chart2.Series("TOTAL_SURVEYS").Points.AddXY("AVERAGE_AGE", Math.Round(avgAge, 2))
+        Chart2.Series("TOTAL_SURVEYS").Points.AddXY("OLD_PERSON", oldPersonNum)
+        Chart2.Series("TOTAL_SURVEYS").Points.AddXY("YOUNG_PERSON", minAge)
+
+        'populate pie chart
+        Chart1.Series("FOOD").Points.AddXY("Pizza", Math.Round(((100 * pizzaTotal) / survCount), 2))
+        Chart1.Series("FOOD").Points.AddXY("Pasta", Math.Round(((100 * pastaTotal) / survCount), 2))
+        Chart1.Series("FOOD").Points.AddXY("Pap & Wors", Math.Round(((100 * pAwTotal) / survCount), 2))
+
+        'populate donut chart
+        Chart3.Series("RATING").Points.AddXY("Eat out", Math.Round(eatOutAvg, 2))
+        Chart3.Series("RATING").Points.AddXY("Movies", Math.Round(moviesAvg, 2))
+        Chart3.Series("RATING").Points.AddXY("TV", Math.Round(tvAvg, 2))
+        Chart3.Series("RATING").Points.AddXY("Radio", Math.Round(radioAvg, 2))
+#End Region
 
         'initialize variables back to zero
         sumAge = 0

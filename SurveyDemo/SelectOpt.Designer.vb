@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class SelectOpt
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class SelectOpt
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SelectOpt))
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -34,6 +34,7 @@ Partial Class SelectOpt
         Me.btnFill = New FontAwesome.Sharp.IconButton()
         Me.viewBtn = New System.Windows.Forms.Button()
         Me.fillBtn = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -105,6 +106,7 @@ Partial Class SelectOpt
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(123, Byte), Integer), CType(CType(210, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Controls.Add(Me.btnView)
         Me.Panel3.Controls.Add(Me.btnFill)
@@ -176,6 +178,15 @@ Partial Class SelectOpt
         Me.fillBtn.Text = "Fill out survey"
         Me.fillBtn.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(972, 455)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(165, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "© EST.2021.10.19 by K.L.Molefe"
+        '
         'SelectOpt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -210,4 +221,5 @@ Partial Class SelectOpt
     Friend WithEvents btnView As FontAwesome.Sharp.IconButton
     Friend WithEvents btnFill As FontAwesome.Sharp.IconButton
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label2 As Label
 End Class

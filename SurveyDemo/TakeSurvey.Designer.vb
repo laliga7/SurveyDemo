@@ -82,12 +82,14 @@ Partial Class TakeSurvey
         Me.Label19 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ageSel = New System.Windows.Forms.NumericUpDown()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel7.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ageSel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -674,6 +676,7 @@ Partial Class TakeSurvey
         '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.Label20)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel7.Location = New System.Drawing.Point(0, 805)
         Me.Panel7.Name = "Panel7"
@@ -707,6 +710,15 @@ Partial Class TakeSurvey
         Me.ageSel.Name = "ageSel"
         Me.ageSel.Size = New System.Drawing.Size(120, 20)
         Me.ageSel.TabIndex = 28
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(930, 7)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(165, 13)
+        Me.Label20.TabIndex = 8
+        Me.Label20.Text = "© EST.2021.10.19 by K.L.Molefe"
         '
         'TakeSurvey
         '
@@ -755,6 +767,8 @@ Partial Class TakeSurvey
         Me.Panel4.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ageSel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -821,4 +835,5 @@ Partial Class TakeSurvey
     Friend WithEvents Label19 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents ageSel As NumericUpDown
+    Friend WithEvents Label20 As Label
 End Class

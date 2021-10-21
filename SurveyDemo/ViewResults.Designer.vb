@@ -22,6 +22,12 @@ Partial Class ViewResults
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ViewResults))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -47,7 +53,14 @@ Partial Class ViewResults
         Me.tvLbl = New System.Windows.Forms.Label()
         Me.radioLbl = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -311,12 +324,101 @@ Partial Class ViewResults
         Me.PictureBox1.TabIndex = 23
         Me.PictureBox1.TabStop = False
         '
+        'Chart1
+        '
+        Me.Chart1.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        Me.Chart1.BorderlineColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        ChartArea1.Area3DStyle.Enable3D = True
+        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Me.Chart1.Location = New System.Drawing.Point(752, 163)
+        Me.Chart1.Name = "Chart1"
+        Series1.BackSecondaryColor = System.Drawing.Color.White
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series1.Color = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        Series1.CustomProperties = "CollectedColor=White"
+        Series1.LabelForeColor = System.Drawing.Color.White
+        Series1.MarkerColor = System.Drawing.Color.White
+        Series1.Name = "FOOD"
+        Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
+        Series1.YValuesPerPoint = 4
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(182, 162)
+        Me.Chart1.TabIndex = 24
+        Me.Chart1.Text = "Chart1"
+        '
+        'Chart3
+        '
+        Me.Chart3.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        Me.Chart3.BorderlineColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        ChartArea2.Area3DStyle.Enable3D = True
+        ChartArea2.Area3DStyle.Inclination = 20
+        ChartArea2.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea2)
+        Me.Chart3.Location = New System.Drawing.Point(825, 331)
+        Me.Chart3.Name = "Chart3"
+        Series2.BackSecondaryColor = System.Drawing.Color.White
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
+        Series2.Color = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        Series2.CustomProperties = "CollectedColor=White"
+        Series2.LabelForeColor = System.Drawing.Color.White
+        Series2.MarkerColor = System.Drawing.Color.White
+        Series2.Name = "RATING"
+        Series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel
+        Series2.YValuesPerPoint = 4
+        Me.Chart3.Series.Add(Series2)
+        Me.Chart3.Size = New System.Drawing.Size(182, 162)
+        Me.Chart3.TabIndex = 26
+        Me.Chart3.Text = "Chart3"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(979, 554)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(165, 13)
+        Me.Label20.TabIndex = 27
+        Me.Label20.Text = "© EST.2021.10.19 by K.L.Molefe"
+        '
+        'Chart2
+        '
+        Me.Chart2.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        Me.Chart2.BorderlineColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        ChartArea3.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        ChartArea3.BorderColor = System.Drawing.Color.White
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea3)
+        Me.Chart2.Location = New System.Drawing.Point(891, 12)
+        Me.Chart2.Name = "Chart2"
+        Series3.BackSecondaryColor = System.Drawing.Color.White
+        Series3.ChartArea = "ChartArea1"
+        Series3.Color = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
+        Series3.CustomProperties = "CollectedColor=White"
+        Series3.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White
+        Series3.LabelForeColor = System.Drawing.Color.White
+        Series3.MarkerColor = System.Drawing.Color.White
+        Series3.Name = "TOTAL_SURVEYS"
+        Series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
+        Series3.YValuesPerPoint = 4
+        Me.Chart2.Series.Add(Series3)
+        Me.Chart2.Size = New System.Drawing.Size(243, 174)
+        Me.Chart2.TabIndex = 25
+        Me.Chart2.Text = "Chart2"
+        '
         'ViewResults
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(181, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1146, 576)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.Chart3)
+        Me.Controls.Add(Me.Chart2)
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.radioLbl)
         Me.Controls.Add(Me.tvLbl)
@@ -347,6 +449,9 @@ Partial Class ViewResults
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ViewResults"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -376,4 +481,8 @@ Partial Class ViewResults
     Friend WithEvents tvLbl As Label
     Friend WithEvents radioLbl As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents Chart3 As DataVisualization.Charting.Chart
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
 End Class
